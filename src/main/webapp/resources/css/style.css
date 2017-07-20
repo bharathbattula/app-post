@@ -1,0 +1,36 @@
+.my__mdl-card{
+    width: 80%;
+}
+.my__mdl-card > .mdl-card__title{
+    color: #000;
+    height: 100px;
+    background-color:aliceblue;
+}
+
+.mdl-floating-button{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  
+}
+  .add_mdl-layout {
+	       align-items: center;
+           justify-content: center;
+           
+}
+.add_mdl-layout__content {
+	       margin:auto;
+	       flex: none;
+}   
+        .add_mdl-card{
+            width: 100%;
+        }
+        .add_text-area{
+            width: 100%;
+        }
+
+
