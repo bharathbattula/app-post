@@ -1,16 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-<title>Insert title here</title>
-</head>
-<body>
-	<h1>${post.title}</h1>
-	<h5>${post.date }</h5>
-	<h5>${post.authorName }</h5>
-	<p>${post.body }</p>
-</body>
-</html>
+
+<div class="mdl-grid" >
+  <div class="mdl-cell mdl-cell--4-col" >
+    <a id="" href="" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--accent mdl-shadow--2dp">
+        <i class="material-icons">arrow_back</i>
+        Back
+    </a>
+    </div>
+    <div class=" mdl-cell mdl-cell--8-col">
+	<div class="mdl-card mdl-shadow--2dp" style="width:80%">
+        <div class="mdl-card__title mdl-card--border " style=" background-color:aliceblue">
+            <div class="mdl-card__title-text">${post.title}</div>
+        </div>
+         <div class="mdl-card__supporting-text mdl-card--border">
+        <div class="mdl-card__subtitle-text ">
+            <p>${post.date }</p>
+        </div>
+      <span class="mdl-chip  ">
+                        <span class="mdl-chip__text ">${post.authorName}</span>
+                    </span>
+        </div>
+        <div class="mdl-card__supporting-text">${post.body}
+        </div>
+    </div>
+        
+    </div>
+</div>

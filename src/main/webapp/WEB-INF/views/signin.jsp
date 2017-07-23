@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="<spring:url value="/resources/css/material.min.css"/>"
 	type="text/css">
@@ -53,10 +54,12 @@
 						<label class="mdl-textfield__label mdl-color-text--grey"
 							for="textfield_username">Username</label> 
 							<form:input path="userEmail" id="textfield_username" cssClass="mdl-textfield__input"
-							type="text"/>
+							type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
 							<!-- <input
 							class="mdl-textfield__input" type="text" id="textfield_username"
 							name="username" /> -->
+							<span
+							class="mdl-textfield__error">enter valid EmailId</span>
 					</div>
 
 					<div
@@ -64,12 +67,14 @@
 						<label class="mdl-textfield__label mdl-color-text--grey"
 							for="textfield_password">Password</label> 
 							<form:input path="userPass" id="textfield_password" cssClass="mdl-textfield__input"
-							type="password"
+							type="password" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"
 							/>
 							<!-- <input
 							class="mdl-textfield__input" type="password"
 							id="textfield_password" name="password" /> -->
-
+							<span class="mdl-textfield__error"> 6-20 characters with at
+							least a digit, lowercase and uppercase letters, and special
+							symbol in @#$% </span>
 					</div>
 
 					<div class="mdl-cell mdl-cell--12-col send-button" align="center">

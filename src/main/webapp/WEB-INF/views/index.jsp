@@ -9,13 +9,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="<spring:url value="/resources/css/material.min.css"/>" type="text/css" >
 <link href='<spring:url value="/resources/css/style.css"/>' rel="stylesheet" >
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src='<spring:url value="/resources/js/jquery-3.2.1.min.js"/>'></script>
 <script src="<spring:url value="/resources/js/material.min.js"/>"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>post-anything</title>
+    <script type="text/javascript">
+    $(function() {
+    	 console.log($("#detailedView").attr("href"));
+   		
+    	 $("#detailedView").click(function() {
+    		    $.ajax({
+    		    	url:$("#detailedView").attr("href"),
+    		    	type:"POST",
+    		    	success:function(data){
+    		    		$("#main").html(data);
+    		    	},
+    		    	
+    		    });
+    		    event.preventDefault();
+    	 });
+    });    
+    
+    </script>
     
  
 </head>
@@ -53,7 +72,7 @@
       </nav>
     </div>
   </header>
-		<main class="mdl-layout__content">
+		<main id="main" class="main_content">
 		<ul class="mdl-list">
 			<c:forEach items="${posts}" var="post">
 				<li class="mdl-list__item">
@@ -68,12 +87,10 @@
 							<span class="mdl-chip"> 
 								 <span class="mdl-chip__text">${post.authorName}</span>
 							</span>
-							
-							
 						</div>
 						<div class="mdl-card__actions mdl-card--border">
 						<spring:url value="/post/view/${post.id}" var="viewurl"/>
-							<a  href="${viewurl}"
+							<a id="detailedView"  href="${viewurl}"
 								class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
 								Read More.... </a>
 						</div>
@@ -84,11 +101,13 @@
 		</ul>
 		
 		<!-- Colored FAB button with ripple --> 
-		<a
+	
+		</main>
+			<a
 			href='<spring:url value="/post/add"/>' id="addPost" onclick=""
 			class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--2dp mdl-floating-button">
 			<i class="material-icons">add</i>
-		</a> </main>
+		</a>
 	</div>
 </body>
 </html>

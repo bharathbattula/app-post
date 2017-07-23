@@ -1,9 +1,16 @@
+.main_content{
+	width:100%; 
+	display: block;
+}
+
 .my__mdl-card{
     width: 80%;
+    
+    
 }
 .my__mdl-card > .mdl-card__title{
     color: #000;
-    height: 100px;
+    height: auto;
     background-color:aliceblue;
 }
 
@@ -17,20 +24,44 @@
   cursor: pointer;
   
 }
-  .add_mdl-layout {
+.add_mdl-layout {
 	       align-items: center;
            justify-content: center;
            
 }
+
+.mdl-list  {
+	margin: auto;
+	width:70%;
+}
+
 .add_mdl-layout__content {
 	       margin:auto;
 	       flex: none;
 }   
         .add_mdl-card{
             width: 100%;
-        }
+}
         .add_text-area{
             width: 100%;
-        }
+}
+
+@media screen and (max-width:500px){
+	.mdl-list{
+	width:100%;
+	}
+	.my__mdl-car{
+	width: 100%;
+	}
+	.mdl-floating-button{
+	bottom: 20px;
+  	right: 20px;
+	}
+}
+@media screen and (min-width:501px){
+	.my__mdl-card{
+    margin:auto;  
+}
+}
 
 

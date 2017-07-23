@@ -6,8 +6,11 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -33,5 +36,16 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping("/content")
+	public String homeContent(){
+		
+		return "content";
+	}
 	
+	
+	
+	/*@ExceptionHandler(DataAccessResourceFailureException.class)
+	public String handleError(){
+		return "server_error";
+	}*/
 }

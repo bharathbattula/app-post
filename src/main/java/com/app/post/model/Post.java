@@ -1,5 +1,7 @@
 package com.app.post.model;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -10,13 +12,18 @@ public class Post {
 	@Field
 	@Id
 	private String id;
+	
+	@NotBlank
 	@Field
 	private String title;
+	
 	@Field
 	private String date;
+	
 	@Field
 	private String authorName;
 	
+	@NotBlank
 	@Field
 	private String body;
 

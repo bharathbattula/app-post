@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="<spring:url value="/resources/css/material.min.css"/>"
 	type="text/css">
@@ -27,6 +28,16 @@
 	margin-bottom: 40px;
 }
 </style>
+<script type="text/javascript">
+function validatePassword(){
+	  if($("#textfield_new_password").value != $("#textfield_password_confirm").value) {
+		  $("#textfield_password_confirm").setCustomValidity("Passwords Don't Match");
+	  } 
+	}
+
+	password.onchange = validatePassword;
+	confirm_password.onkeyup = validatePassword;
+</script>
 </head>
 <body class="mdl-color--blue-grey-50">
 	<div class="mdl-grid">
@@ -50,13 +61,10 @@
 						<label class="mdl-textfield__label mdl-color-text--grey"
 							for="textfield_new_username">Username</label> 
 							<form:input id="textfield_new_username" path="userEmail" 
-							cssClass="mdl-textfield__input" type="text" pattern="^[a-z0-9_-]{3,15}$"  />
-							<!-- <input
-							class="mdl-textfield__input" type="text"
-							id="textfield_new_username" name="username"
-							pattern="^[a-z0-9_-]{3,15}$" />  --><span
-							class="mdl-textfield__error">3-15 characters with only
-							lowercase letters, digits, underscore, and hyphen</span>
+							cssClass="mdl-textfield__input" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  />
+						
+							<span
+							class="mdl-textfield__error">enter valid EmailId</span>
 					</div>
 
 					<div
@@ -65,11 +73,7 @@
 							for="textfield_new_password">Password</label> 
 							<form:input id="textfield_new_password" path="userPass" type="password"  cssClass="mdl-textfield__input" 
 								pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})" />
-							
-							<!-- <input
-							class="mdl-textfield__input" type="password"
-							id="textfield_new_password" name="password"
-							pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})" /> -->
+						
 						<span class="mdl-textfield__error"> 6-20 characters with at
 							least a digit, lowercase and uppercase letters, and special
 							symbol in @#$% </span>
@@ -82,13 +86,15 @@
 							
 							<input
 							class="mdl-textfield__input" type="password" 
-							id="textfield_password_confirm" name="password_confirm" />
+							id="textfield_password_confirm" name="password_confirm" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})" />
+							<span id="message" class="mdl-textfield__error">Passowrd should be same as above </span>
+								
 					</div>
 
 					<div class="mdl-cell mdl-cell--12-col " align="center">
-						<button
+						<button 
 							class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored"
-							id="login">Register</button>
+							id="register">Register</button>
 					</div>
 					<div class="mdl-cell mdl-cell--12-col" align="center">
 						<p>
